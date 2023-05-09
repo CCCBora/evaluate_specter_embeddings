@@ -43,7 +43,6 @@ Ensure the response can be parsed by Python json.loads
         time.sleep(2)
         num_attempts += 1
         print(f"Attempts: {num_attempts}")
-        json_error = None
         try:
             response = chain.run(title)
 
@@ -56,11 +55,6 @@ Ensure the response can be parsed by Python json.loads
                 return [json_output]
         except json.decoder.JSONDecodeError as json_error:
             pass
-
-        if json_error is not None:
-            time.sleep(2)
-        else:
-            break
     if num_attempts == max_attempts:
         raise RuntimeError("Cannot generate correct output.")
     else:
