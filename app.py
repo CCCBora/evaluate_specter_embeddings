@@ -41,7 +41,13 @@ def accordion_clear(file, slider):
 
 
 with gr.Blocks() as demo:
+    gr.Markdown("""
+    # Generate Paper Abstract using Title
+    
+    输入文章标题，[HuggingChat](https://github.com/Soulter/hugging-chat-api)会为你生成文章的摘要.
+    """)
     with gr.Row():
+
         with gr.Column():
             paper_title = gr.Textbox(label="Title")
             with gr.Row():

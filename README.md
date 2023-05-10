@@ -10,4 +10,12 @@ pinned: false
 license: openrail
 ---
 
-Check out the configuration reference at https://huggingface.co/docs/hub/spaces-config-reference
+# Evaluate Specter Embeddings
+
+You can always use the following API
+[https://model-apis.semanticscholar.org/specter/v1/invoke](https://model-apis.semanticscholar.org/specter/v1/invoke) 
+to evaluate the Semantic Scholar's Specter embedding vectors.
+
+This repo is used to additionally add an abstract before evaluating the embeddings. 
+The abstract is generated using [HuggingChat](https://github.com/Soulter/hugging-chat-api). 
+This function is provided as a free demo on Huggingface Spaces. 

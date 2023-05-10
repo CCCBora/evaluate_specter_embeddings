@@ -8,6 +8,7 @@ import time
 
 URL = "https://model-apis.semanticscholar.org/specter/v1/invoke"
 MAX_BATCH_SIZE = 16
+MAX_ATTEMPTS = 20
 
 
 def chunks(lst, chunk_size=MAX_BATCH_SIZE):
@@ -37,7 +38,7 @@ Ensure the response can be parsed by Python json.loads
     )
     chain = LLMChain(llm=llm, prompt=prompt)
 
-    max_attempts = 20
+    max_attempts = MAX_ATTEMPTS
     num_attempts = 0
     for x in range(max_attempts):
         time.sleep(2)
