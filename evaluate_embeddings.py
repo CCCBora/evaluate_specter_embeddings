@@ -19,7 +19,7 @@ def chunks(lst, chunk_size=MAX_BATCH_SIZE):
 def generate_title_abs(title):
     """
     input: title; a string of paper
-    output: {"paper_id": "query_paper", "title": title, "abstract": generated abstract}
+    output: {"paper_id": "target_paper", "title": title, "abstract": generated abstract}
     """
     llm = HugchatLLM()
     template = """
@@ -42,7 +42,7 @@ Ensure the response can be parsed by Python json.loads
     for x in range(max_attempts):
         time.sleep(2)
         num_attempts += 1
-        print(f"Attempts: {num_attempts}")
+        print(f"Generating abstract... Attempts: {num_attempts}")
         try:
             response = chain.run(title)
 
@@ -51,9 +51,9 @@ Ensure the response can be parsed by Python json.loads
             print(response)
             if result:
                 json_output = json.loads(response)
-                json_output["paper_id"] = "query_paper"
+                json_output["paper_id"] = "target_paper"
                 return [json_output]
-        except json.decoder.JSONDecodeError as json_error:
+        except json.decoder.JSONDecodeError:
             pass
     if num_attempts == max_attempts:
         raise RuntimeError("Cannot generate correct output.")
