@@ -23,7 +23,7 @@ The LLM will introduce more information and backgrounds to improve the accuracy 
 * The function of finding top-k relevant papers is served as a simple solution for selecting references in the   [Auto-Draft](https://huggingface.co/spaces/auto-academic/auto-draft) project.
 
 ## Usage 
-The usage will be updated soon. As 2023-05-11, Gradio 3.28.3 has issues on generating the API page; I will update this usage when the API is fixed.
+Currently this code doesn't work since [HuggingChat](https://github.com/Soulter/hugging-chat-api) additionally requires cookies. I will update it soon.
 
 ## License
 Openrail

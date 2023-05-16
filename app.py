@@ -45,6 +45,9 @@ with gr.Blocks() as demo:
     # Generate Paper Abstract using Title
     
     输入文章标题，[HuggingChat](https://github.com/Soulter/hugging-chat-api)会为你生成文章的摘要.
+    
+    Currently this code doesn't work since [HuggingChat](https://github.com/Soulter/hugging-chat-api) additionally requires cookies. I will update it soon.
+
     """)
     with gr.Row():
 
