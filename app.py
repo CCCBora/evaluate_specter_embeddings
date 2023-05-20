@@ -44,10 +44,9 @@ with gr.Blocks() as demo:
     gr.Markdown("""
     # Generate Paper Abstract using Title
     
-    输入文章标题，[HuggingChat](https://github.com/Soulter/hugging-chat-api)会为你生成文章的摘要.
+    Go to [GitHub](https://github.com/CCCBora/evaluate_specter_embeddings).
     
-    Currently this code doesn't work since [HuggingChat](https://github.com/Soulter/hugging-chat-api) additionally requires cookies. I will update it soon.
-
+    输入文章标题，[HuggingChat](https://github.com/Soulter/hugging-chat-api)会为你生成文章的摘要.
     """)
     with gr.Row():
 

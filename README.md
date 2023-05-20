@@ -3,8 +3,7 @@ title: Evaluate Specter Embeddings
 emoji: 🐠
 colorFrom: indigo
 colorTo: purple
-sdk: gradio
-sdk_version: 3.30.0
+sdk: gradio 
 app_file: app.py
 pinned: false
 license: openrail

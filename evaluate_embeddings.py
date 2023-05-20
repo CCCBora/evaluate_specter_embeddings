@@ -3,7 +3,7 @@ from langchain import PromptTemplate
 import json, requests
 from hugchat_llm import HugchatLLM
 from langchain.chains import LLMChain
-import re
+import re, os
 import time
 
 URL = "https://model-apis.semanticscholar.org/specter/v1/invoke"
@@ -77,6 +77,12 @@ def embed(papers):
     return embeddings_by_paper_id
 
 if __name__ == "__main__":
+    from huggingface_hub import hf_hub_download
+
+    hf_token = "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"
+    path = hf_hub_download(repo_id="shaocongma/setting-private", filename="cookies.json", repo_type="dataset",
+                    local_dir=os.getcwd(), force_download=True,
+                    local_dir_use_symlinks=False, token=hf_token)
     paper_title = "Misalignment and mode mismatch error signals for higher-order Hermite-Gauss modes from two sensing schemes"
     output = generate_title_abs(paper_title)
 
