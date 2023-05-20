@@ -3,8 +3,9 @@ from hugchat import hugchat
 import os
 from huggingface_hub import hf_hub_download
 
-hf_token = "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"
-path = hf_hub_download(repo_id="shaocongma/setting-private", filename="cookies.json", repo_type="dataset",
+hf_token = os.getenv("HF_TOKEN")
+repo_id = os.getenv("REPO_ID")
+path = hf_hub_download(repo_id=repo_id, filename="cookies.json", repo_type="dataset",
                        local_dir=os.getcwd(), force_download=True,
                        local_dir_use_symlinks=False, token=hf_token)
 
