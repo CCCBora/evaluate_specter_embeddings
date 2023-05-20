@@ -22,8 +22,12 @@ The LLM will introduce more information and backgrounds to improve the accuracy 
 * The abstract generation function is provided as a free demo on [this Huggingface Spaces](https://huggingface.co/spaces/shaocongma/evaluate_specter_embeddings). 
 * The function of finding top-k relevant papers is served as a simple solution for selecting references in the   [Auto-Draft](https://huggingface.co/spaces/auto-academic/auto-draft) project.
 
-## Usage 
-Currently this code doesn't work since [HuggingChat](https://github.com/Soulter/hugging-chat-api) additionally requires cookies. I will update it soon.
+## Usage - A Free Web Application
+* Visit [this Huggingface Spaces](https://huggingface.co/spaces/shaocongma/evaluate_specter_embeddings). 
+
+## Usage - API
+
+
 
 ## License
 Openrail

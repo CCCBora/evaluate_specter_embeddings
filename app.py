@@ -48,6 +48,7 @@ with gr.Blocks() as demo:
     
     输入文章标题，[HuggingChat](https://github.com/Soulter/hugging-chat-api)会为你生成文章的摘要.
     """)
+    include_embedding = gr.Checkbox(value=False, visible=False, label="Include Embedding?")
     with gr.Row():
 
         with gr.Column():
@@ -73,7 +74,7 @@ with gr.Blocks() as demo:
     btn_accordion_clear.click(fn=accordion_clear, inputs=[papers_json, slider],
                              outputs=[papers_json, slider])
 
-    btn_get_embeddings.click(fn=get_embeddings, inputs=[paper_title],
+    btn_get_embeddings.click(fn=get_embeddings, inputs=[paper_title, include_embedding],
                              outputs=[out_json], api_name="get_embeddings")
     btn_relevant_papers.click(fn=get_relavant_papers, inputs=[paper_title, papers_json, slider],
                               outputs=[out_json], api_name="get_k_relevant_papers")
