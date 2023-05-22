@@ -11,11 +11,15 @@ from numpy.linalg import norm
 
 
 def evaluate_cosine_similarity(v1, v2):
-    return np.dot(v1, v2)/(norm(v1)*norm(v2))
+    try:
+        return np.dot(v1, v2)/(norm(v1)*norm(v2))
+    except ValueError:
+        return 0.0
 
 def get_top_k(papers_json, target_paper_json, k=None):
     # turn json file to dictionary
-    papers = json.loads(papers_json)
+    with open(papers_json.name, "r") as f:
+        papers = json.load(f)
     target_paper = target_paper_json
 
     # if k < len(papers_json), return k most relevant papers
@@ -40,10 +44,15 @@ def get_top_k(papers_json, target_paper_json, k=None):
 
 
 if __name__ == "__main__":
-    pj = r'''{"paper1": {"title": "some title",  "abstract": "some title", "embeddings": [1, 0, 5, 3]},
-          "paper2": {"title": "some title",  "abstract": "some title", "embeddings": [2, 1, 5, 3]},
-          "paper4": {"title": "some title",  "abstract": "some title", "embeddings": [4, 1, 4, 3]}}'''
-    tpj = r'''{"title": "some some",  "abstract": "some some", "embeddings": [-1, 1, -2, 3]}'''
+    class R:
+        def __init__(self):
+            self.name = None
 
+
+    pj = R()
+    pj.name = "paper.json"
+    print(pj.name)
+    tpj = r'''{"title": "some some",  "abstract": "some some", "embeddings": [-1, 1, -2, 3]}'''
+    tpj = json.loads(tpj)
     top = get_top_k(pj, tpj, k=None)
     print(top)

@@ -23,10 +23,10 @@ def get_relavant_papers(paper_title, papers_file, k, include_embeddings = False)
     # target_paper["embeddings"] = emb_vector
     target_paper = get_embeddings(paper_title, include_embeddings=True)
 
-    with open(papers_file.name, encoding="utf-8") as f:
-        papers_string = f.read()
-    papers_string = papers_string.replace("\'", "\"")
-    top_k_papers = get_top_k(papers_string, target_paper, k)
+    # with open(papers_file.name, encoding="utf-8") as f:
+    #     papers_string = f.read()
+    # papers_string = papers_string.replace("\'", "\"")
+    top_k_papers = get_top_k(papers_file, target_paper, k)
     if not include_embeddings:
         for key in top_k_papers:
             top_k_papers[key].pop("embeddings", None)

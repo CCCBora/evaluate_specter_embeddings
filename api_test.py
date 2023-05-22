@@ -34,5 +34,5 @@ def get_k_relevant_papers():
     print(result)
 
 if __name__ == "__main__":
-    get_embeddings()
+    # get_embeddings()
     get_k_relevant_papers()
